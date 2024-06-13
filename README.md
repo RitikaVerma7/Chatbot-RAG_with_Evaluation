@@ -40,37 +40,31 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
     - **Vector Store Creation**: Generated embeddings using OpenAIEmbeddings and stored them in a FAISS vector database for efficient retrieval.
     - **Conversational Chain Setup**: Established a conversational retrieval chain with LangChain, incorporating ChatOpenAI and ConversationBufferMemory to handle user queries and maintain context.
 
-5. **Initial Evaluation Methods Used**: 
+**Initial Evaluation Methods Used (30 entries)**: 
 
-    - **LLM Evaluation**: Developed a comprehensive evaluation method using the Ollama model to assess the RAG system's performance.
+- **LLM Evaluation**: Developed a comprehensive evaluation method using the Ollama model to assess the RAG system's performance.
     - **Accuracy Measurement**: Implemented a process to compare actual responses from the chatbot against expected answers using a structured evaluation prompt.
     - **CSV-Based Testing**: Conducted evaluations using a CSV file containing test cases, calculating the accuracy of the system's responses.
     - **Detailed Feedback**: Provided detailed feedback by printing evaluation results, highlighting correct and incorrect responses for further analysis and improvement.
 
-    - **Embedding-Based Evaluation**: Utilized the SentenceTransformer model to assess the precision, recall, and relevancy of the RAG system's responses.
+- **Embedding-Based Evaluation**: Utilized the SentenceTransformer model to assess the precision, recall, and relevancy of the RAG system's responses.
     - **Cosine Similarity**: Computed embeddings for expected and actual answers, measuring their similarity to evaluate relevancy.
     - **Precision and Recall Metrics**: Calculated precision and recall based on token overlap between expected and actual answers, providing a comprehensive performance analysis.
     - **Detailed Reporting**: Printed detailed evaluation results for each test case, including precision, recall, and relevancy scores, along with average metrics for overall performance assessment.
 
-6. **Accuracy Improvements**:
-   - PDF cleanup.
-   - Used Multiquery retriever.
-   - Few-shot prompting (added 10 initial dataset entries along with the PDF).
-   - Added metadata like chunk numbers and page numbers (later removed due to issues).
 
 ### Improvements
 
 1. **Text Cleaning**: Implemented text cleaning to remove newlines and extra spaces, ensuring the text is well-structured and easier to process.
-2. **Metadata Addition**: Added chunk numbers and page numbers to improve context relevance (removed due to issues).
-3. **MultiQuery Retrieval**: Integrated MultiQueryRetriever to generate multiple variations of user queries, enhancing the retrieval process by overcoming limitations of distance-based similarity search.
-4. **Combined Data Sources**: Merged text chunks from the policy document and an additional dataset to replicate few-shot prompting technique. 
-5. **Citation Handling**: Added citation information to responses, providing users with the source of the information for better transparency and reliability.
+2. **Metadata Addition**: Added chunk numbers and tried adding page numbers to improve context relevance (in progress).
+3. **MultiQuery Retrieval**: Integrated MultiQueryRetriever to generate multiple variations of user queries(top k as defualt), enhancing the retrieval process by overcoming limitations of distance-based similarity search.
+4. **Combined Data Sources**: Merged text chunks from the policy document and an additional dataset(10 questions and anwers) to replicate few-shot prompting technique. 
+5. **Citation Handling**: Added citation information to responses, providing users with the source of the information for better transparency and reliability.(Page number will be added)
 
 
-## Evaluation Metrics
-- **Expanded Dataset Evaluation**: Evaluated the RAG system using an updated training set of 50 entries, enhancing the robustness of the evaluation process.
-- **Multiple Metrics**: Employed a variety of evaluation metrics, including faithfulness and answer relevancy, to provide a comprehensive assessment of the system's performance.
-- **Detailed Scoring**: Converted evaluation results into a pandas DataFrame for detailed analysis and visualization, ensuring clear and actionable insights.
+## Final Evaluation
+
+**Expanded Dataset Evaluation**: Evaluated the RAG system using an updated training set of 50 entries, enhancing the robustness of the evaluation process.
 
 ### Metrics
 
