@@ -1,19 +1,11 @@
-# RAG-Powered Chatbot for Auto Insurance Queries
+# RAG-Powered Chatbot & Evaluation
 
 ## Overview
 
-This project aims to create a Retrieval-Augmented Generation (RAG) powered chatbot designed to answer questions related to auto insurance policies. By leveraging advanced AI technologies and a carefully constructed dataset, this chatbot can provide accurate and relevant responses to user inquiries, making it a valuable tool for both customers and businesses in the insurance sector.
+This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) powered chatbot designed to answer questions related to auto insurance policies.
 
 ## Demo
 ![Alt text for GIF](https://github.com/RitikaVerma7/Chatbot-RAG_with_Evaluation/blob/main/Demo.gif)
-
-## Dataset Construction
-
-1. **Combination Method**: 
-   - **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate a portion of the dataset.
-   - **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook.
-2. **Diverse Queries**: Ensured that the questions cover different types, document sections, and pages to avoid concentration in one area.
-3. **Relevance and Challenge**: Designed questions to reflect real-world scenarios, making them relevant and challenging.
 
 ### Thought Process
 
@@ -28,48 +20,51 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
 - OpenAI API
 - FAISS
 - LangChain
-- PyPDF2
 - SentenceTransformers
-- Pandas
 - LlamaIndex
-- Ollama, Mistral 
+- Ollama, Mistral
 - RAGAs
-- Numpy
 
 ### Development Steps
 
-1. **Dataset Preprocessing**: Tried reading pdf with various libraries.
-2. **Chunk Evaluation**: Evaluated the response time and accuracy of different chunk sizes using LlamaIndex. This step was crucial as it directly impacts the efficiency and effectiveness of the RAG system. The evaluation code measures average response time, faithfulness, and relevancy of the responses for various chunk sizes to find the optimal configuration. Chose chunk size: 256 as optimal, based on best faithfulness and relevancy.
-3. **Initial Setup**: 
-   - Built a basic local RAG using Chroma DB, Nomic-embed-text embeddings from Ollama, and the Mistral chat model, didn't preform well.
-   - Tried with Pinecone DB as well, but vectorizing with FAISS achived best results in terms of initial test using chat model.
-4. **First RAG Setup**: Achieved better results with OpenAI embeddings, FAISS vector database, and LangChain.
-    - **PDF Text Extraction**: Extracted text from the policy handbook PDFs using PyPDF2.
-    - **Text Chunking**: Utilized LangChain's RecursiveCharacterTextSplitter to split the extracted text into manageable chunks, optimizing for chunk size and overlap.
-    - **Vector Store Creation**: Generated embeddings using OpenAIEmbeddings and stored them in a FAISS vector database for efficient retrieval.
-    - **Conversational Chain Setup**: Established a conversational retrieval chain with LangChain, incorporating ChatOpenAI and ConversationBufferMemory to handle user queries and maintain context.
+1. **Chunk Evaluation**: Evaluated different chunk sizes using LlamaIndex. This step was crucial as it directly impacts the efficiency and effectiveness of the RAG system. The evaluation code measures average response time, faithfulness, and relevancy of the responses for various chunk sizes to find the optimal configuration. *Chose chunk size: 256*, based on best faithfulness and relevancy.
+2. **Initial Setup**: 
+   - Built a basic local RAG using Chroma DB, Nomic-embed-text embeddings from Ollama, and the Mistral chat model, didn't perform well.
+   - Tried with Pinecone DB as well, but vectorizing with FAISS achieved best results in terms of initial test using chat model.
+3. **First RAG Setup**: 
+   - **PDF Text Extraction**: Extracted text from the policy handbook PDFs using PyPDF2.
+   - **Text Chunking**: Utilized LangChain's RecursiveCharacterTextSplitter to split the extracted text into chunks, optimizing for chunk size and overlap.
+   - **Vector Store Creation**: Generated embeddings using OpenAIEmbeddings and stored them in a FAISS vector database.
+   - **Conversational Chain Setup**: Established a conversational retrieval chain with LangChain, incorporating ChatOpenAI and ConversationBufferMemory to handle user queries and maintain context.
 
-**Initial Evaluation Methods Used (30 entries)**: 
+## Initial Evaluation
 
-- **LLM Evaluation**: Developed a comprehensive evaluation method using the Ollama model to assess the RAG system's performance.
-    - **Accuracy Measurement**: Implemented a process to compare actual responses from the chatbot against expected answers using a structured evaluation prompt.
-    - **CSV-Based Testing**: Conducted evaluations using a CSV file containing test cases, calculating the accuracy of the system's responses.
-    - **Detailed Feedback**: Provided detailed feedback by printing evaluation results, highlighting correct and incorrect responses for further analysis and improvement.
+### Evaluation Dataset Construction
+
+1. **Combination Method**: 
+   - **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate an initial 30 entries.
+   - **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook. Total 30 entries.
+2. **Diverse Queries**: Ensured that the questions cover different types, document sections, and pages.
+3. **Relevance and Challenge**: Designed questions to reflect real-world scenarios, making them relevant and challenging.
+
+### Evaluation Methods
+
+- **LLM Evaluation**: Developed an evaluation method using the Ollama model to assess the RAG system's performance.
+  - **Accuracy Measurement**: Implemented a process to compare actual responses from the chatbot against expected answers using a structured evaluation prompt.
+  - **Detailed Feedback**: Provided detailed feedback by printing evaluation results, highlighting correct and incorrect responses for further analysis and improvement.
 
 - **Embedding-Based Evaluation**: Utilized the SentenceTransformer model to assess the precision, recall, and relevancy of the RAG system's responses.
-    - **Cosine Similarity**: Computed embeddings for expected and actual answers, measuring their similarity to evaluate relevancy.
-    - **Precision and Recall Metrics**: Calculated precision and recall based on token overlap between expected and actual answers, providing a comprehensive performance analysis.
-    - **Detailed Reporting**: Printed detailed evaluation results for each test case, including precision, recall, and relevancy scores, along with average metrics for overall performance assessment.
+  - **Cosine Similarity**: Computed embeddings for expected and actual answers, measuring their similarity to evaluate relevancy.
+  - **Precision and Recall Metrics**: Calculated precision and recall based on token overlap between expected and actual answers.
+  - **Detailed Reporting**: Detailed evaluation results for each test case, including precision, recall, and relevancy scores, along with average metrics for overall performance assessment.
 
-
-### Improvements
+## RAG Improvements Measures
 
 1. **Text Cleaning**: Implemented text cleaning to remove newlines and extra spaces, ensuring the text is well-structured and easier to process.
 2. **Metadata Addition**: Added chunk numbers and tried adding page numbers to improve context relevance (in progress).
-3. **MultiQuery Retrieval**: Integrated MultiQueryRetriever to generate multiple variations of user queries(top k as defualt), enhancing the retrieval process by overcoming limitations of distance-based similarity search.
-4. **Combined Data Sources**: Merged text chunks from the policy document and an additional dataset(10 questions and anwers) to replicate few-shot prompting technique. 
-5. **Citation Handling**: Added citation information to responses, providing users with the source of the information for better transparency and reliability.(Page number will be added)
-
+3. **MultiQuery Retrieval**: Integrated MultiQueryRetriever to generate multiple variations of user queries (top k as default), enhancing the retrieval process by overcoming limitations of distance-based similarity search.
+4. **Combined Data Sources**: Merged text chunks from the policy document and an additional dataset (10 questions and answers) to replicate few-shot prompting technique.
+5. **Citation Handling**: Added citation information to responses, providing users with the source of the information for better transparency and reliability (page number will be added).
 
 ## Final Evaluation
 
@@ -82,7 +77,6 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
 - **Context Recall**: Measures alignment of retrieved context with the annotated answer. Chosen to evaluate the effectiveness of context retrieval.
 - **Answer Correctness**: Evaluates the accuracy of the generated answer compared to the ground truth. Chosen to ensure the chatbot's answers are correct.
 - **Context Precision**: Evaluates whether all relevant items in the contexts are ranked higher. Chosen to ensure relevant information is prioritized.
-
 
 ## Evaluation Metrics Scores
 
@@ -97,7 +91,6 @@ The following table summarizes the scores obtained using different evaluation te
 - **RAGAs Evaluation**: Aggregated scores for faithfulness, relevancy, context recall, answer correctness, and context precision.
 - **Ollama Model Evaluation**: Focused on accuracy by comparing actual responses with expected answers.
 - **SentenceTransformer Model**: Evaluated average precision, recall, and relevancy by computing embeddings and token overlap.
-
 
 ## Conclusion
 
@@ -116,5 +109,5 @@ Based on the evaluation results, future improvements could focus on:
 
 1. **Increasing Faithfulness and Answer Correctness**: Develop methods to enhance the factual consistency and correctness of the generated answers.
 2. **Enhancing Dataset Diversity**: Integrate additional datasets and continue refining the dataset to cover more diverse and challenging scenarios.
-3. **Refining Query Generation**: Improve query generation techniques, by incorporating user feedback.
+3. **Refining Query Generation**: Improve query generation techniques by incorporating user feedback.
 4. **Expanding Evaluation Metrics**: Implement more comprehensive evaluation metrics to capture a wider range of performance aspects and further fine-tune the chatbot's capabilities.
