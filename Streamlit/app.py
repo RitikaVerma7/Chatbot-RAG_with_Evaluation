@@ -65,9 +65,9 @@ def handle_userinput(conversation_chain, user_question, citation):
 st.title("RAG-Powered Chatbot")
 
 # Sidebar description
-st.sidebar.title("Welcome to Churchill")
+st.sidebar.title("Auto Insurance Chatbot")
 st.sidebar.markdown("""
-Welcome to the Churchill Insurance Chatbot. This chatbot is designed to help you with your car insurance policy.
+Welcome!!
 
 **How to Use**
 
