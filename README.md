@@ -66,11 +66,11 @@ This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) 
 
 ### Metrics
 
-- **Faithfulness**: Measures factual consistency of generated answers against the given context. Chosen to ensure the chatbot's responses are accurate and reliable.
-- **Relevancy**: Assesses the pertinence of the generated answer to the given prompt. Chosen to ensure the chatbot provides useful and relevant information.
-- **Context Recall**: Measures alignment of retrieved context with the annotated answer. Chosen to evaluate the effectiveness of context retrieval.
-- **Answer Correctness**: Evaluates the accuracy of the generated answer compared to the ground truth. Chosen to ensure the chatbot's answers are correct.
-- **Context Precision**: Evaluates whether all relevant items in the contexts are ranked higher. Chosen to ensure relevant information is prioritized.
+- **Faithfulness**: Ensures that all claims made in the answer can be inferred from the provided context, reducing hallucinations.
+- **Relevancy**: Higher scores indicate that the chatbot provides more useful and relevant information.
+- **Context Recall**: Measures the extent to which the retrieved context aligns with the annotated answer, ensuring that the necessary information is included in the responses.
+- **Answer Correctness**: Evaluates the accuracy of the generated answer compared to the ground truth. Ensures that the chatbot's answers are correct and reliable.
+- **Context Precision**: Evaluates whether all relevant items in the contexts are ranked higher. Ensures that the most relevant information appears at the top, improving the chatbot’s efficiency in retrieving correct answers.
 
 ## Evaluation Metrics Scores
 
