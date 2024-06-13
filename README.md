@@ -6,41 +6,67 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
 
 ## Dataset Construction
 
-1. **Combination Method**: The dataset was created using a combination of AI-assisted and manual approaches.
-2. **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate a portion of the dataset.
-3. **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook.
-4. **Coverage**: The dataset includes various sections from the policy handbook, covering queries related to tables, text, and more.
-5. **Performance Gauging**: This dataset allows businesses to assess the accuracy and relevance of RAG system responses, ensuring high-quality outputs for real-world applications.
-6. **Relevance and Challenge**: The questions are designed to be relevant and challenging, reflecting real-world scenarios.
+### Guidelines for Creating the Dataset
+
+1. **Minimum Rows**: The dataset contains at least 30 rows.
+2. **Diversity**: The query-response pairs are diverse and not concentrated on a specific query type, document section, or page.
+3. **Comprehensive Coverage**: The dataset covers various sections from the policy handbook, including queries from tables, text, and more, ensuring a broad spectrum of potential user questions.
+
+### Construction Process
+
+1. **Combination Method**: 
+   - **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate a portion of the dataset.
+   - **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook.
+2. **Diverse Queries**: Ensured that the questions cover different types, document sections, and pages to avoid concentration in one area.
+3. **Relevance and Challenge**: Designed questions to reflect real-world scenarios, making them relevant and challenging.
+
+### Thought Process
+
+- **AI and Manual Integration**: Combining AI-generated content with manual searches ensures both breadth and depth in the dataset.
+- **Real-world Relevance**: Focused on real-world insurance questions to make the chatbot responses practical and useful.
+- **Quality Assurance**: The dataset's diversity helps gauge the chatbot's performance in various scenarios, ensuring comprehensive evaluation.
 
 ## RAG System Creation
 
-1. **Tech Stack**: OpenAI embeddings, FAISS vector database, LangChain, and OpenAI chat model.
-2. **Dataset Preprocessing**: Determined the ideal chunk size using the LlamaIndex framework.
-3. **Initial Setup**:
+### Tech Stack
+
+- OpenAI embeddings
+- FAISS vector database
+- LangChain
+- OpenAI chat model
+
+### Development Steps
+
+1. **Dataset Preprocessing**: Determined the ideal chunk size using the LlamaIndex framework.
+2. **Initial Setup**: 
    - Built a basic local RAG using Chroma DB, Nomic-embed-text embeddings from Ollama, and the Mistral chat model.
-   - Observed inefficiencies and switched to Pinecone DB, which also did not meet expectations.
-4. **Optimized Setup**: Achieved better results with OpenAI embeddings, FAISS vector database, and LangChain.
-5. **Evaluation Methods**:
-   - Utilized the Mistral chat model.
+   - Switched to Pinecone DB due to inefficiencies.
+3. **Optimized Setup**: Achieved better results with OpenAI embeddings, FAISS vector database, and LangChain.
+4. **Evaluation Methods**: 
+   - Used the Mistral chat model.
    - Employed Sentence Transformer.
-6. **Accuracy Improvements**:
+5. **Accuracy Improvements**:
    - PDF cleanup.
    - Used Multiquery retriever.
    - Few-shot prompting (added 10 initial dataset entries along with the PDF).
    - Added metadata like chunk numbers and page numbers (later removed due to issues).
-7. **Re-evaluation**:
-   - Accuracy assessment with the Mistral chat model.
-   - Precision, recall, and relevancy evaluation with Sentence Transformer.
-   - RAGAs metrics: Faithfulness, relevancy, context recall, answer correctness, context precision.
 
-## Metrics Focus
+## Evaluation Metrics
 
-1. **Faithfulness**: Measures the factual consistency of the generated answer against the given context. RAGAs faithfulness is computed using an LLM-as-a-judge approach.
-2. **Relevancy**: Assesses how pertinent the generated answer is to the given prompt. Higher scores indicate better relevancy.
-3. **Context Recall**: Measures the extent to which the retrieved context aligns with the annotated answer.
-4. **Answer Correctness**: Evaluates the accuracy of the generated answer compared to the ground truth.
-5. **Context Precision**: Evaluates whether all relevant items in the contexts are ranked higher. Ideally, all relevant chunks must appear at the top ranks.
+### Thought Process
+
+- **Faithfulness**: Measures factual consistency of generated answers against the given context. Chosen to ensure the chatbot's responses are accurate and reliable.
+- **Relevancy**: Assesses the pertinence of the generated answer to the given prompt. Chosen to ensure the chatbot provides useful and relevant information.
+- **Context Recall**: Measures alignment of retrieved context with the annotated answer. Chosen to evaluate the effectiveness of context retrieval.
+- **Answer Correctness**: Evaluates the accuracy of the generated answer compared to the ground truth. Chosen to ensure the chatbot's answers are correct.
+- **Context Precision**: Evaluates whether all relevant items in the contexts are ranked higher. Chosen to ensure relevant information is prioritized.
+
+### Improvements
+
+1. **PDF Cleanup**: Ensured the input documents were clean and well-structured.
+2. **Multiquery Retriever**: Improved retrieval accuracy by using multiple queries.
+3. **Few-shot Prompting**: Enhanced model training by including a small set of initial dataset entries.
+4. **Metadata Addition**: Added chunk numbers and page numbers to improve context relevance (removed due to issues).
 
 ## Conclusion
 
