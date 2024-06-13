@@ -105,3 +105,6 @@ Based on the evaluation results, future improvements could focus on:
 2. **Enhancing Dataset Diversity**: Integrate additional datasets and continue refining the dataset to cover more diverse and challenging scenarios.
 3. **Training on User Feedback**: Taking feedback from streamlit UI, saving it and providing scoring to train LLM
 4. **Expanding Evaluation Metrics**: Implement other evaluation metrics to capture a wider range of performance aspects and further fine-tune the chatbot's capabilities.
+
+
+Thank you for reviewing this project. Contributions and feedback are always welcome.
