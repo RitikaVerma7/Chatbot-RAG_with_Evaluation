@@ -88,7 +88,7 @@ The following table summarizes the scores obtained using different evaluation te
 
 ## Conclusion
 
-This project demonstrates the development and evaluation of a RAG-powered chatbot designed to handle auto insurance queries. By leveraging advanced AI technologies and a carefully constructed dataset, we aimed to create a robust and reliable system. Here are the key takeaways from our work:
+This project demonstrates the development and evaluation of a RAG-powered chatbot designed to handle auto insurance queries. Here are the key takeaways from our work:
 
 1. **Dataset Construction**: Combining AI-generated content with manual searches ensured both breadth and depth, covering a wide range of real-world scenarios.
 2. **Technical Stack and Improvements**: Iteratively refined the tech stack, including the use of OpenAI embeddings, FAISS vector database, and LangChain, to optimize the chatbot's performance.
