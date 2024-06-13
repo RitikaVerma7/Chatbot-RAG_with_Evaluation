@@ -97,7 +97,7 @@ This project demonstrates the development and evaluation of a RAG-powered chatbo
    - **Ollama Model Evaluation** achieved high accuracy, demonstrating reliable performance in matching expected answers.
    - **SentenceTransformer Model** provided insights into precision and recall, suggesting areas for enhancing the overlap between expected and actual answers.
 
-## Future Work
+## Steps for Improvement
 
 Based on the evaluation results, future improvements could focus on:
 
