@@ -6,14 +6,6 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
 
 ## Dataset Construction
 
-### Guidelines for Creating the Dataset
-
-1. **Minimum Rows**: The dataset contains at least 30 rows.
-2. **Diversity**: The query-response pairs are diverse and not concentrated on a specific query type, document section, or page.
-3. **Comprehensive Coverage**: The dataset covers various sections from the policy handbook, including queries from tables, text, and more, ensuring a broad spectrum of potential user questions.
-
-### Construction Process
-
 1. **Combination Method**: 
    - **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate a portion of the dataset.
    - **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook.
@@ -51,6 +43,14 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
    - Few-shot prompting (added 10 initial dataset entries along with the PDF).
    - Added metadata like chunk numbers and page numbers (later removed due to issues).
 
+### Improvements
+
+1. **PDF Cleanup**: Ensured the input documents were clean and well-structured.
+2. **Multiquery Retriever**: Improved retrieval accuracy by using multiple queries.
+3. **Few-shot Prompting**: Enhanced model training by including a small set of initial dataset entries.
+4. **Metadata Addition**: Added chunk numbers and page numbers to improve context relevance (removed due to issues).
+
+
 ## Evaluation Metrics
 
 ### Thought Process
@@ -61,12 +61,7 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
 - **Answer Correctness**: Evaluates the accuracy of the generated answer compared to the ground truth. Chosen to ensure the chatbot's answers are correct.
 - **Context Precision**: Evaluates whether all relevant items in the contexts are ranked higher. Chosen to ensure relevant information is prioritized.
 
-### Improvements
 
-1. **PDF Cleanup**: Ensured the input documents were clean and well-structured.
-2. **Multiquery Retriever**: Improved retrieval accuracy by using multiple queries.
-3. **Few-shot Prompting**: Enhanced model training by including a small set of initial dataset entries.
-4. **Metadata Addition**: Added chunk numbers and page numbers to improve context relevance (removed due to issues).
 
 ## Conclusion
 
