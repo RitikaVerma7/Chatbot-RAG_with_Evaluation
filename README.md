@@ -41,10 +41,10 @@ This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) 
 2. **Diverse Queries**: Ensured that the questions cover different types, document sections, and pages.
 3. **Relevance and Challenge**: Designed questions to reflect real-world scenarios, making them relevant and challenging.
 
-### Evaluation Methods
+### Initial Evaluation Methods
 
 - **LLM Evaluation**: Developed an evaluation method using the Ollama model to assess the RAG system's performance.
-  - **Accuracy Measurement**: Implemented a process to compare actual responses from the chatbot against expected answers using a structured evaluation prompt.
+  - **Accuracy Measurement**: Implemented a process to compare 30 actual responses from the chatbot against expected answers using a structured evaluation prompt.
   - **Detailed Feedback**: Provided detailed feedback by printing evaluation results, highlighting correct and incorrect responses for further analysis and improvement.
 
 - **Embedding-Based Evaluation**: Utilized the SentenceTransformer model to assess the precision, recall, and relevancy of the RAG system's responses.
