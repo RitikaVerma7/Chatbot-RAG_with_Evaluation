@@ -21,7 +21,7 @@ This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) 
 
 ### Development Steps
 
-1. **Chunk Evaluation**: Evaluated different chunk sizes using LlamaIndex. This step was crucial as it directly impacts the efficiency and effectiveness of the RAG system. The evaluation code measures average response time, faithfulness, and relevancy of the responses for various chunk sizes to find the optimal configuration. *Chose chunk size: 256*, based on best faithfulness and relevancy.
+1. **Chunk Evaluation**: Evaluated different chunk sizes using LlamaIndex. This step was crucial as it directly impacts the efficiency and effectiveness of the RAG system. The evaluation code measures average response time, faithfulness, and relevancy of the responses for various chunk sizes to find the optimal configuration. *Best chunk size: 256*, based on best faithfulness and relevancy.
 2. **Initial Setup**: 
    - Built a basic local RAG using Chroma DB, Nomic-embed-text embeddings from Ollama, and the Mistral chat model, didn't perform well.
    - Tried with Pinecone DB as well, but vectorizing with FAISS achieved best results in terms of initial test using chat model.
