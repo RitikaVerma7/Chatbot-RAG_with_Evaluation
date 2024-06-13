@@ -7,6 +7,15 @@ This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) 
 ## Demo
 ![Alt text for GIF](https://github.com/RitikaVerma7/Chatbot-RAG_with_Evaluation/blob/main/Demo.gif)
 
+
+## Repository Structure
+
+The repository is organized into the following folders:
+
+- **code**: Contains Jupyter notebooks used for developing and testing the RAG chatbot.
+- **streamlit**: Contains `app.py`, `requirements.txt` and other dependencies to run the chatbot using Streamlit.
+- **Evaluation dataset & result**: Contains CSV files used for evaluation, including `Cleaned_Testcase_Dataset.csv` which is the evaluation dataset.
+
 ## RAG System Creation
 
 ### Tech Stack
