@@ -4,6 +4,9 @@
 
 This project aims to create a Retrieval-Augmented Generation (RAG) powered chatbot designed to answer questions related to auto insurance policies. By leveraging advanced AI technologies and a carefully constructed dataset, this chatbot can provide accurate and relevant responses to user inquiries, making it a valuable tool for both customers and businesses in the insurance sector.
 
+## Demo
+![Alt text for GIF](https://github.com/RitikaVerma7/Chatbot-RAG_with_Evaluation/blob/main/Demo.gif)
+
 ## Dataset Construction
 
 1. **Combination Method**: 
@@ -22,10 +25,16 @@ This project aims to create a Retrieval-Augmented Generation (RAG) powered chatb
 
 ### Tech Stack
 
-- OpenAI embeddings
-- FAISS vector database
+- OpenAI API
+- FAISS
 - LangChain
-- OpenAI chat model
+- PyPDF2
+- SentenceTransformers
+- Pandas
+- LlamaIndex
+- Ollama, Mistral 
+- RAGAs
+- Numpy
 
 ### Development Steps
 
