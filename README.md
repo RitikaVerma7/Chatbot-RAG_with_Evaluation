@@ -7,12 +7,6 @@ This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) 
 ## Demo
 ![Alt text for GIF](https://github.com/RitikaVerma7/Chatbot-RAG_with_Evaluation/blob/main/Demo.gif)
 
-### Thought Process
-
-- **AI and Manual Integration**: Combining AI-generated content with manual searches ensures both breadth and depth in the dataset.
-- **Real-world Relevance**: Focused on real-world insurance questions to make the chatbot responses practical and useful.
-- **Quality Assurance**: The dataset's diversity helps gauge the chatbot's performance in various scenarios, ensuring comprehensive evaluation.
-
 ## RAG System Creation
 
 ### Tech Stack
@@ -98,7 +92,7 @@ This project demonstrates the development and evaluation of a RAG-powered chatbo
 
 1. **Dataset Construction**: Combining AI-generated content with manual searches ensured both breadth and depth, covering a wide range of real-world scenarios.
 2. **Technical Stack and Improvements**: Iteratively refined the tech stack, including the use of OpenAI embeddings, FAISS vector database, and LangChain, to optimize the chatbot's performance.
-3. **Evaluation Metrics**: Employed multiple evaluation techniques, including RAGAs, Ollama, and SentenceTransformer models, to comprehensively assess the chatbot's responses. 
+3. **Evaluation Metrics**: Employed multiple evaluation techniques.
    - **RAGAs Evaluation** highlighted strong relevancy and context precision but indicated room for improvement in faithfulness and answer correctness.
    - **Ollama Model Evaluation** achieved high accuracy, demonstrating reliable performance in matching expected answers.
    - **SentenceTransformer Model** provided insights into precision and recall, suggesting areas for enhancing the overlap between expected and actual answers.
@@ -107,7 +101,7 @@ This project demonstrates the development and evaluation of a RAG-powered chatbo
 
 Based on the evaluation results, future improvements could focus on:
 
-1. **Increasing Faithfulness and Answer Correctness**: Develop methods to enhance the factual consistency and correctness of the generated answers.
+1. **Increasing Faithfulness and Answer Correctness**: Better citation, with page number of the policy document.
 2. **Enhancing Dataset Diversity**: Integrate additional datasets and continue refining the dataset to cover more diverse and challenging scenarios.
-3. **Refining Query Generation**: Improve query generation techniques by incorporating user feedback.
-4. **Expanding Evaluation Metrics**: Implement more comprehensive evaluation metrics to capture a wider range of performance aspects and further fine-tune the chatbot's capabilities.
+3. **Training on User Feedback**: Taking feedback from streamlit UI, saving it and providing scoring to train LLM
+4. **Expanding Evaluation Metrics**: Implement other evaluation metrics to capture a wider range of performance aspects and further fine-tune the chatbot's capabilities.
