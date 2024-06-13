@@ -36,8 +36,8 @@ This project aims to create and evaluate a Retrieval-Augmented Generation (RAG) 
 ### Evaluation Dataset Construction
 
 1. **Combination Method**: 
-   - **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate an initial 30 entries.
-   - **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook. Total 30 entries.
+   - **AI Assistance**: Utilized ChatGPT (Model 4) with specific guidelines to generate 30 entries.
+   - **Manual Search**: Manually searched for top auto insurance questions and found corresponding answers in the policy handbook, 30 entries.
 2. **Diverse Queries**: Ensured that the questions cover different types, document sections, and pages.
 3. **Relevance and Challenge**: Designed questions to reflect real-world scenarios, making them relevant and challenging.
 
