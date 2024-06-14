@@ -21,7 +21,7 @@ from streamlit_feedback import streamlit_feedback
 from secret_key import my_openapi_key
 
 # Securely set up environment variables for API keys
-os.environ['OPENAI_API_KEY'] = my_openapi_key 
+os.environ['OPENAI_API_KEY'] = my_openapi_key
 
 
 # Helper functions
@@ -50,7 +50,7 @@ def get_vectorstore(text_chunks_with_metadata):
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI(temperature=0)
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-    QUERY_PROMPT = PromptTemplate(template="You are a churchill car insurance provider agent. Your task is to generate five different versions of the given user {question} to retrieve relevant documents from a vector database. Please provide variations of the query: {question} to retrieve relevant documents from a vector database. By generating multiple perspectives on the user question, your goal is to help the user overcome some of the limitations of the distance-based similarity search.", input_variables=["question"])
+    QUERY_PROMPT = PromptTemplate(template="You are a churchill car insurance provider agent. Your task is to generate five different versions of the given user {question} to retrieve relevant documents from a vector database. Please provide variations of the query: {question} to retrieve relevant documents from a vector database. By generating multiple perspectives on the user question, your goal is to help the user overcome some of the limitations of the distance-based similarity search. Also, you need to stick to the context only. If there any other query outside the document just answer politely to the user to ask questions relevant to insurance policy.", input_variables=["question"])
     llm_chain = LLMChain(llm=llm, prompt=QUERY_PROMPT)
     retriever = MultiQueryRetriever.from_llm(vectorstore.as_retriever(), llm, prompt=QUERY_PROMPT)
     conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory)
